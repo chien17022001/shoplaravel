@@ -1,4 +1,6 @@
 @extends('admin.layouts.template')
+Add Category
+@endsection
 @section('content')
-add category
+DDDDD
 @endsection
