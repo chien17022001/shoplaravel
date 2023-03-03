@@ -1,4 +1,8 @@
 @extends('admin.layouts.template')
-@section('content')
-Dashboard
+@section('page_title')
+Pending Order
 @endsection
+@section('content')
+DDDDD
+@endsection
+

@@ -1,4 +1,7 @@
 @extends('admin.layouts.template')
-@section('content')
+@section('page_title')
 Dashboard
+@endsection
+@section('content')
+DDDDD
 @endsection
