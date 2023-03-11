@@ -29,7 +29,7 @@
                             @endif
                             <form action="{{ route('updatecategory') }}" method="POST">
                                 @csrf
-                                <input type="hidden" value="{{ $category_info->id }}">
+                                <input type="hidden" value="{{ $category_info->id }}" name="category_id">
                                 <div class="mb-3">
                                     <label class="form-label" for="basic-default-fullname">Category Name</label>
                                     <input type="text" class="form-control" id="category_name" name="category_name"

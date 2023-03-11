@@ -18,18 +18,20 @@ Add Sub Category
               <small class="text-muted float-end">Input Information</small>
             </div>
             <div class="card-body">
-              <form action="" method="POST">
+              <form action="{{ route('storesubcategory') }}" method="POST">
+                @csrf
                 <div class="mb-3">
                   <label class="form-label" for="basic-default-fullname">Sub Category Name</label>
                   <input type="text" class="form-control" id="subcategory_name" name="subcategory_name" placeholder="Electronics" />
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="basic-default-fullname">Select Category</label>
-                    <select class="form-select" id="category" name="category" aria-label="Default select example">
+                    <select class="form-select" id="category_id" name="category_id" aria-label="Default select example">
                         <option selected>Open this select menu</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                        @foreach ($categories as $category )
+                        <option value="{{ $category->id }}">{{ $category->category_name }}</option>
+                        @endforeach
+
                       </select>
                   </div>
 
