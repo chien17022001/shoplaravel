@@ -27,7 +27,7 @@ Add Sub Category
                 <div class="mb-3">
                     <label class="form-label" for="basic-default-fullname">Select Category</label>
                     <select class="form-select" id="category_id" name="category_id" aria-label="Default select example">
-                        <option selected>Open this select menu</option>
+                        <option selected>Select Category</option>
                         @foreach ($categories as $category )
                         <option value="{{ $category->id }}">{{ $category->category_name }}</option>
                         @endforeach
