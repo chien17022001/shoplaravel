@@ -29,12 +29,23 @@ Route::controller(HomeController::class)->group(function(){
 });
 
 Route::controller(ClientController::class)->group(function(){
-    Route::get('/category','CategoryPage')->name('category');
-    Route::get('/single-product','SingleProduct')->name('singleproduct');
+    Route::get('/category/{id}/{slug}','CategoryPage')->name('category');
+    Route::get('/product-details/{id}/{slug}','SingleProduct')->name('singleproduct');
     Route::get('/add-to-cart','AddToCart')->name('addtocart');
     Route::get('/checkout','CheckOut')->name('checkout');
     Route::get('/user-profile','UserProfile')->name('userprofile');
 
+});
+
+Route::middleware(['auth', 'role:user'])->group(function(){
+    Route::controller(ClientController::class)->group(function(){
+        Route::get('/add-to-cart','AddToCart')->name('addtocart');
+        Route::post('/add-product-to-cart/{id}','AddProductToCart')->name('addproducttocart');
+        Route::get('/checkout','CheckOut')->name('checkout');
+        Route::get('/user-profile','UserProfile')->name('userprofile');
+        Route::get('/user-profile/pending-orders','PendingOrders')->name('pendingorders');
+        Route::get('/user-profile/history','History')->name('history');
+    });
 });
 
 Route::get('/dashboard', function () {
