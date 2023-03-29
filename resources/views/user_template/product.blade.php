@@ -24,8 +24,10 @@
                 <div class="d-flex mb-3">
                     <p class="text-dark font-weight-medium mb-0 mr-3">Available Quantity: {{ $product->quantity }}</p>
                 </div>
-                <form action="{{ route('addproducttocart',$product -> id) }}" method="POST">
+                <form action="{{ route('addproducttocart', $product->id) }}" method="POST">
                     @csrf
+                    <input type="hidden" value="{{ $product->id }}" name="product_id">
+                    <input type="hidden" value="{{ $product->price }}" name="price">
                     <div class="d-flex align-items-center mb-4 pt-2">
                         <div class="input-group quantity mr-3" style="width: 130px;">
                             <div class="input-group-btn">
@@ -33,8 +35,8 @@
                                     <i class="fa fa-minus"></i>
                                 </button>
                             </div>
-                            <input type="hidden" value="{{ $product ->id }}" name="product_id">
-                            <input type="text" class="form-control bg-secondary text-center" name="product_quantity" value="1">
+                            <input type="text" class="form-control bg-secondary text-center" name="quantity"
+                                value="1">
                             <div class="input-group-btn">
                                 <button type="button" class="btn btn-primary btn-plus">
                                     <i class="fa fa-plus"></i>
@@ -142,8 +144,15 @@
                         <div class="card-footer d-flex justify-content-between bg-light border">
                             <a href="{{ route('singleproduct', [$product->id, $product->slug]) }}"
                                 class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>See More</a>
-                            <a href="{{ route('singleproduct', [$product->id, $product->slug]) }}" class="btn btn-sm text-dark p-0"><i
-                                    class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</a>
+                            <form action="{{ route('addproducttocart',$product ->id) }}" method="POST">
+                                @csrf
+                                <input type="hidden" value="{{ $product->id }}" name="product_id">
+                                <input type="hidden" value="{{ $product->price }}" name="price">
+                                <input type="hidden" value="1" name="quantity">
+                                <button href="{{ route('singleproduct', [$product->id, $product->slug]) }}"
+                                    class="btn btn-sm text-dark p-0"><i
+                                        class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</a></button>
+                            </form>
                         </div>
                     </div>
                 </div>

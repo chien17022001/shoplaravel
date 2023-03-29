@@ -24,7 +24,7 @@ All Sub Category
                       <tr>
                         <th>Id</th>
                         <th>Sub Category Name</th>
-                        <th>Slug</th>
+                        <th>Category</th>
                         <th>Product</th>
                         <th>Actions</th>
                       </tr>

@@ -31,10 +31,6 @@ Route::controller(HomeController::class)->group(function(){
 Route::controller(ClientController::class)->group(function(){
     Route::get('/category/{id}/{slug}','CategoryPage')->name('category');
     Route::get('/product-details/{id}/{slug}','SingleProduct')->name('singleproduct');
-    Route::get('/add-to-cart','AddToCart')->name('addtocart');
-    Route::get('/checkout','CheckOut')->name('checkout');
-    Route::get('/user-profile','UserProfile')->name('userprofile');
-
 });
 
 Route::middleware(['auth', 'role:user'])->group(function(){
@@ -42,15 +38,17 @@ Route::middleware(['auth', 'role:user'])->group(function(){
         Route::get('/add-to-cart','AddToCart')->name('addtocart');
         Route::post('/add-product-to-cart/{id}','AddProductToCart')->name('addproducttocart');
         Route::get('/checkout','CheckOut')->name('checkout');
+        Route::get('/shipping-address','GetShippingAddress')->name('getshippingaddress');
+        Route::post('/add-shipping-address','AddShippingAddress')->name('addshippingaddress');
+        Route::post('/place-order','PlaceOrder')->name('placeorder');
         Route::get('/user-profile','UserProfile')->name('userprofile');
         Route::get('/user-profile/pending-orders','PendingOrders')->name('pendingorders');
         Route::get('/user-profile/history','History')->name('history');
+        Route::get('/remove-cart-item/{id}','RemoveCartItem')->name('removeitem');
     });
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth','role:user'])->name('dashboard');
+
 
 Route::middleware(['auth', 'role:admin'])->group(function(){
     Route::controller(DashboardController::class)->group(function(){
