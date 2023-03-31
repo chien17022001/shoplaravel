@@ -19,7 +19,7 @@
                     </div>
                     <small class="pt-1">(50 Reviews)</small>
                 </div>
-                <h3 class="font-weight-semi-bold mb-4">{{ $product->price }}</h3>
+                <h3 class="font-weight-semi-bold mb-4">@money($product->price)</h3>
                 <p class="mb-4">{{ $product->product_short_des }}</p>
                 <div class="d-flex mb-3">
                     <p class="text-dark font-weight-medium mb-0 mr-3">Available Quantity: {{ $product->quantity }}</p>

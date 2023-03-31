@@ -30,10 +30,13 @@ All Category
                         <th>Actions</th>
                       </tr>
                     </thead>
+                    @php
+                        $i=1;
+                    @endphp
                     <tbody class="table-border-bottom-0">
                         @foreach ($categories  as $category)
                         <tr>
-                            <td>{{ $category->id }}</td>
+                            <td>{{ $i++ }}</td>
                             <td>{{ $category->category_name }}</td>
                             <td>{{ $category->subcategory_count }}</td>
                             <td>{{ $category->slug }}</td>
@@ -45,6 +48,7 @@ All Category
                         @endforeach
 
                     </tbody>
+                  </table>
               </div>
             </div>
           </div>

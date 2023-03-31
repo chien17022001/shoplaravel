@@ -7,11 +7,13 @@ use App\Models\Category;
 use App\Models\SubCategory;
 use Illuminate\Http\Request;
 use Mockery\Matcher\Subset;
+use Illuminate\Pagination\Paginator;
+
 
 class SubCategoryController extends Controller
 {
     public function Index(){
-        $allsubcategory = SubCategory::latest()->get();
+        $allsubcategory = SubCategory::latest()->inRandomOrder()->paginate(8);
         return view('admin.allsubcategory', compact('allsubcategory'));
     }
 

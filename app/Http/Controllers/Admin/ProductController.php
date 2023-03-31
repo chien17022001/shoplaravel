@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 class ProductController extends Controller
 {
     public function Index(){
-        $products = Product::latest()->get();
+        $products = Product::latest()->paginate(3);
         return view('admin.allproducts', compact('products'));
     }
 
