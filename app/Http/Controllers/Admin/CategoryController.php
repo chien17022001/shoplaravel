@@ -25,7 +25,8 @@ class CategoryController extends Controller
 
         Category::insert([
             'category_name' => $request->category_name,
-            'slug' => strtolower(str_replace(' ','-',$request->category_name))
+            'slug' => str_replace(' ','-',$request->category_name)
+
         ]);
 
         return redirect()->route('allcategory')->with('message','Category Added Successfully!');
@@ -39,7 +40,7 @@ class CategoryController extends Controller
 
     public function UpdateCategory(Request $request){
         $category_id = $request->category_id;
-
+        $category_name = $request->category_name;
         $request->validate([
             'category_name' => 'required|unique:categories',
 
@@ -47,7 +48,7 @@ class CategoryController extends Controller
 
         Category::findOrFail($category_id)->update([
             'category_name' => $request->category_name,
-            'slug' => strtolower(str_replace(' ','-',$request->category_name))
+            'slug' => strtolower(str_replace(' ','-',$category_name))
         ]);
 
         return redirect()->route('allcategory')->with('message','Category Update Successfully!');

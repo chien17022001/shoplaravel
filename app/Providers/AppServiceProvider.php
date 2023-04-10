@@ -31,6 +31,7 @@ class AppServiceProvider extends ServiceProvider
             return "<?php echo number_format($amount).' VNĐ'; ?>";
         });
         Paginator::useBootstrap();
+
     }
 
 

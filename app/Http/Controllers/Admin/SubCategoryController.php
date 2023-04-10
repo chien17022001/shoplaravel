@@ -33,7 +33,7 @@ class SubCategoryController extends Controller
 
         SubCategory::insert([
             'subcategory_name' => $request->subcategory_name,
-            'slug' => strtolower(str_replace(' ','-',$request->subcategory_name)),
+            'slug' => str_replace(' ','-',$request->subcategory_name),
             'category_id' => $category_id,
             'category_name' => $category_name
         ]);
@@ -57,7 +57,7 @@ class SubCategoryController extends Controller
 
         SubCategory::findOrFail($subcatid)->update([
             'subcategory_name' => $request -> subcategory_name,
-            'slug' => strtolower(str_replace(' ','-',$request->subcategory_name)),
+            'slug' => str_replace(' ','-',$request->subcategory_name),
         ]);
         return redirect()->route('allsubcategory')->with('message','Sub Category Update Successfully!');
     }

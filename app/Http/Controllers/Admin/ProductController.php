@@ -53,7 +53,7 @@ class ProductController extends Controller
             'product_subcategory_id' => $request->product_subcategory_id,
             'product_img' => $img_url,
             'quantity' => $request -> quantity,
-            'slug' => strtolower(str_replace(' ','-',$request->product_name)),
+            'slug' => str_replace(' ','-',$request->product_name),
         ]);
 
         Category::where('id', $category_id)->increment('product_cout',1);
