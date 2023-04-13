@@ -52,7 +52,7 @@
                                     <tr>
                                         <td>{{ $product_name }}</td>
                                         <td>{{ $item->quantity }}</td>
-                                        <td>{{ $item->price }}</td>
+                                        <td>@money($item->price)</td>
                                     </tr>
                                     @php
                                         $total = $total + $item->price;
@@ -63,11 +63,11 @@
                             <hr class="mt-0">
                             <div class="d-flex justify-content-between mb-3 pt-1">
                                 <h6 class="font-weight-medium">Subtotal</h6>
-                                <h6 class="font-weight-medium">{{ $total }}</h6>
+                                <h6 class="font-weight-medium">@money($total)</h6>
                             </div>
                             <div class="d-flex justify-content-between">
                                 <h6 class="font-weight-medium">Shipping</h6>
-                                <h6 class="font-weight-medium">10</h6>
+                                <h6 class="font-weight-medium">@money(30000)</h6>
                             </div>
                         </div>
 
@@ -77,7 +77,7 @@
                     <div class="card-footer border-secondary bg-transparent">
                         <div class="d-flex justify-content-between mt-2">
                             <h5 class="font-weight-bold">Total</h5>
-                            <h5 class="font-weight-bold">{{ $total + 10 }}</h5>
+                            <h5 class="font-weight-bold">@money( $total + 30000)</h5>
                         </div>
                     </div>
                     <form action="" method="POST">

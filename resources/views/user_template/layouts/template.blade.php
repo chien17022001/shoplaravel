@@ -1,5 +1,7 @@
 @php
     $categories = App\Models\Category::latest()->get();
+    $id = auth()->id();
+    $user = App\Models\User::find($id);
 @endphp
 
 <!DOCTYPE html>
@@ -141,20 +143,20 @@
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                         <div class="navbar-nav mr-auto py-0">
                             <a href="{{ route('home') }}" class="nav-item nav-link">Home</a>
-                            <a href="shop.html" class="nav-item nav-link">Shop</a>
-                            <a href="detail.html" class="nav-item nav-link">Shop Detail</a>
-                            <div class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
-                                <div class="dropdown-menu rounded-0 m-0">
-                                    <a href="{{ route('addtocart') }}" class="dropdown-item">Shopping Cart</a>
-                                    <a href="{{ route('checkout') }}" class="dropdown-item">Checkout</a>
-                                </div>
-                            </div>
+                            <a href="{{ route('addtocart') }}" class="nav-item nav-link">Shopping Cart</a>
+                            <a href="{{ route('checkout') }}" class="nav-item nav-link">Checkout</a>
                             <a href="contact.html" class="nav-item nav-link">Contact</a>
                         </div>
                         <div class="navbar-nav ml-auto py-0">
+
                             @if (Auth::check())
+                                @if ($user->hasRole('admin'))
+                                <a href="{{ route('admindashboard') }}" class="nav-item nav-link">Go to Admin</a>
                                 <a href="{{ route('logout') }}" class="nav-item nav-link">Logout</a>
+                                @else
+                                <a href="{{ route('logout') }}" class="nav-item nav-link">Logout</a>
+                                @endif
+
                             @else
                                 <a href="{{ route('login') }}" class="nav-item nav-link">Login</a>
                                 <a href="{{ route('register') }}" class="nav-item nav-link">Register</a>

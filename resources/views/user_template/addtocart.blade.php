@@ -27,9 +27,9 @@
                                 @endphp
                                 <td class="align-middle"><img src="{{ $product_img }}" alt="" style="width: 50px;">
                                     {{ $product_name }}</td>
-                                <td class="align-middle">{{ $product_price }}</td>
+                                <td class="align-middle">@money($product_price)</td>
                                 <td class="align-middle">{{ $items->quantity }}</td>
-                                <td class="align-middle">{{ $items->price }}</td>
+                                <td class="align-middle">@money($items->price)</td>
                                 <td class="align-middle">
                                     {{-- <button class="btn btn-sm btn-primary" >
                                         <a href="{{ route('removeitem', $items->id) }}" ></a>
@@ -64,16 +64,16 @@
                     <div class="card-body">
                         <div class="d-flex justify-content-between mb-3 pt-1">
                             <h6 class="font-weight-medium">Subtotal</h6>
-                            <h6 class="font-weight-medium">{{ $total }}</h6>
+                            <h6 class="font-weight-medium">@money($total)</h6>
                         </div>
                         <div class="d-flex justify-content-between">
                             <h6 class="font-weight-medium">Shipping</h6>
                             @if ($total <= 0)
                                 <h6 class="font-weight-medium">$0</h6>
                             @else
-                                <h6 class="font-weight-medium">$10</h6>
+                                <h6 class="font-weight-medium">@money(30000)</h6>
                                 @php
-                                    $total +=10;
+                                    $total +=30000;
                                 @endphp
                             @endif
                         </div>
@@ -81,7 +81,7 @@
                     <div class="card-footer border-secondary bg-transparent">
                         <div class="d-flex justify-content-between mt-2">
                             <h5 class="font-weight-bold">Total</h5>
-                            <h5 class="font-weight-bold">{{ $total }}</h5>
+                            <h5 class="font-weight-bold">@money($total)</h5>
                         </div>
                         @if ($total <= 0)
                             <a href="" class="btn btn-block btn-primary my-3 py-3 disabled">Proceed To Checkout</a>
