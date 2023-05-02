@@ -110,74 +110,85 @@
 
                 <div class="menu-inner-shadow"></div>
 
-                <ul class="menu-inner py-1">
-                    <!-- Dashboard -->
-                    <li class="menu-item active">
-                        <a href="{{ route('admindashboard') }}" class="menu-link">
-                            <i class="menu-icon tf-icons bx bx-home-circle"></i>
-                            <div data-i18n="Analytics">Dashboard</div>
-                        </a>
-                    </li>
-                    {{-- Category --}}
-                    <li class="menu-header small text-uppercase">
-                        <span class="menu-header-text">Category</span>
-                    </li>
-                    <li class="menu-item">
-                        <a href="{{ route('addcategory') }}" class="menu-link">
-                            <i class="menu-icon tf-icons bx bx-home-circle"></i>
-                            <div data-i18n="Analytics">Add Category</div>
-                        </a>
-                    </li>
-                    <li class="menu-item">
-                        <a href="{{ route('allcategory') }}" class="menu-link">
-                            <i class="menu-icon tf-icons bx bx-home-circle"></i>
-                            <div data-i18n="Analytics">All Category</div>
-                        </a>
-                    </li>
+                    <ul class="menu-inner py-1">
+                        <!-- Dashboard -->
+                        <li class="menu-item active">
+                            <a href="{{ route('admindashboard') }}" class="menu-link">
+                                <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                                <div data-i18n="Analytics">Dashboard</div>
+                            </a>
+                        </li>
+                        {{-- Category --}}
+                        <li class="menu-header small text-uppercase">
+                            <span class="menu-header-text">Category</span>
+                        </li>
+                        <li class="menu-item">
+                            <a href="{{ route('addcategory') }}" class="menu-link">
+                                <i class="menu-icon tf-icons bx bx-category"></i>
+                                <div data-i18n="Analytics">Add Category</div>
+                            </a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="{{ route('allcategory') }}" class="menu-link">
+                                <i class="menu-icon tf-icons bx bx-category"></i>
+                                <div data-i18n="Analytics">All Category</div>
+                            </a>
+                        </li>
 
-                    <li class="menu-header small text-uppercase">
-                        <span class="menu-header-text">SubCategory</span>
-                    </li>
-                    <li class="menu-item">
-                        <a href="{{ route('addsubcategory') }}" class="menu-link">
-                            <i class="menu-icon tf-icons bx bx-home-circle"></i>
-                            <div data-i18n="Analytics">Add Sub Category</div>
-                        </a>
-                    </li>
-                    <li class="menu-item">
-                        <a href="{{ route('allsubcategory') }}" class="menu-link">
-                            <i class="menu-icon tf-icons bx bx-home-circle"></i>
-                            <div data-i18n="Analytics">All Sub Category</div>
-                        </a>
-                    </li>
+                        <li class="menu-header small text-uppercase">
+                            <span class="menu-header-text">SubCategory</span>
+                        </li>
+                        <li class="menu-item">
+                            <a href="{{ route('addsubcategory') }}" class="menu-link">
+                                <i class="menu-icon tf-icons bx bxs-category-alt"></i>
+                                <div data-i18n="Analytics">Add Sub Category</div>
+                            </a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="{{ route('allsubcategory') }}" class="menu-link">
+                                <i class="menu-icon tf-icons bx bxs-category-alt"></i>
+                                <div data-i18n="Analytics">All Sub Category</div>
+                            </a>
+                        </li>
 
-                    <li class="menu-header small text-uppercase">
-                        <span class="menu-header-text">Product</span>
-                    </li>
-                    <li class="menu-item">
-                        <a href="{{ route('addproduct') }}" class="menu-link">
-                            <i class="menu-icon tf-icons bx bx-home-circle"></i>
-                            <div data-i18n="Analytics">Add Product</div>
-                        </a>
-                    </li>
-                    <li class="menu-item">
-                        <a href="{{ route('allproducts') }}" class="menu-link">
-                            <i class="menu-icon tf-icons bx bx-home-circle"></i>
-                            <div data-i18n="Analytics">All Product</div>
-                        </a>
-                    </li>
+                        <li class="menu-header small text-uppercase">
+                            <span class="menu-header-text">Product</span>
+                        </li>
+                        <li class="menu-item">
+                            <a href="{{ route('addproduct') }}" class="menu-link">
+                                <i class="menu-icon tf-icons bx bxl-product-hunt"></i>
+                                <div data-i18n="Analytics">Add Product</div>
+                            </a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="{{ route('allproducts') }}" class="menu-link">
+                                <i class="menu-icon tf-icons bx bxl-product-hunt"></i>
+                                <div data-i18n="Analytics">All Product</div>
+                            </a>
+                        </li>
 
-                    <li class="menu-header small text-uppercase">
-                        <span class="menu-header-text">Orders</span>
-                    </li>
-                    <li class="menu-item">
-                        <a href="{{ route('pendingorder') }}" class="menu-link">
-                            <i class="menu-icon tf-icons bx bx-home-circle"></i>
-                            <div data-i18n="Analytics">Pending Orders</div>
-                        </a>
-                    </li>
+                        <li class="menu-header small text-uppercase">
+                            <span class="menu-header-text">Orders</span>
+                        </li>
+                        <li class="menu-item">
+                            <a href="{{ route('pendingorder') }}" class="menu-link">
+                                <i class="menu-icon tf-icons bx bx-shopping-bag"></i>
+                                <div data-i18n="Analytics">Pending Orders</div>
+                            </a>
+                        </li>
 
-                </ul>
+                        <li class="menu-header small text-uppercase">
+                            <span class="menu-header-text">User</span>
+                        </li>
+                        <li class="menu-item">
+                            <a href="{{ route('pendingorder') }}" class="menu-link">
+                                <i class="menu-icon tf-icons bx bx-user-circle"></i>
+                                <div data-i18n="Analytics">User</div>
+                            </a>
+                        </li>
+
+                    </ul>
+
             </aside>
             <!-- / Menu -->
 
@@ -232,7 +243,7 @@
                                                         $id = auth()->id();
                                                         $user = App\Models\User::find($id);
                                                     @endphp
-                                                    <span class="fw-semibold d-block">{{ $user -> name }}</span>
+                                                    <span class="fw-semibold d-block">{{ $user->name }}</span>
                                                     <small class="text-muted">Admin</small>
                                                 </div>
                                             </div>
