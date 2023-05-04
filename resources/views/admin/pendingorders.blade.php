@@ -4,6 +4,7 @@
 @endsection
 @section('content')
     <div class="container my-5">
+        <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Page /</span> Pending Orders</h4>
         <div class="card p-4">
             <div class="card-title">
                 <h2 class="text-center">Pending Orders</h2>
