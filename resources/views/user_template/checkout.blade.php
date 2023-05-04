@@ -77,21 +77,23 @@
                     <div class="card-footer border-secondary bg-transparent">
                         <div class="d-flex justify-content-between mt-2">
                             <h5 class="font-weight-bold">Total</h5>
-                            <h5 class="font-weight-bold">@money( $total + 30000)</h5>
+                            <h5 class="font-weight-bold">@money($total + 30000)</h5>
                         </div>
                     </div>
-                    <form action="" method="POST">
+
+                    <form action="{{ route('payment') }}" method="POST" >
                         @csrf
                         <div class="card-footer border-secondary bg-transparent">
-                            <input type="submit" value="Cancel Order" class="btn btn-lg btn-block btn-danger font-weight-bold my-3 py-3">
+                            <input type="submit" value="Place Order" name="redirect"
+                                class="btn btn-lg btn-block btn-primary font-weight-bold my-3 py-3">
                         </div>
                     </form>
-                    <form action="{{ route('placeorder') }}" method="POST">
-                        @csrf
-                        <div class="card-footer border-secondary bg-transparent">
-                            <input type="submit" value="Place Order" class="btn btn-lg btn-block btn-primary font-weight-bold my-3 py-3">
-                        </div>
-                    </form>
+
+                    <div class="card-footer border-secondary bg-transparent">
+                        <a href="{{ route('home') }} " class="btn btn-lg btn-block btn-danger font-weight-bold my-3 py-3">Cancel Order</a>
+                    </div>
+
+
 
                 </div>
             </div>

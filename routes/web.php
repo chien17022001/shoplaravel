@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\SubCategoryController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
@@ -43,6 +44,7 @@ Route::middleware(['auth', 'role:user'])->group(function(){
         Route::post('/place-order','PlaceOrder')->name('placeorder');
         Route::get('/user-profile','UserProfile')->name('userprofile');
         Route::get('/user-profile/pending-orders','PendingOrders')->name('pendingorders');
+        Route::post('/vnpay_payment','Payment')->name('payment');
         Route::get('/user-profile/history','History')->name('history');
         Route::get('/remove-cart-item/{id}','RemoveCartItem')->name('removeitem');
     });
@@ -86,6 +88,10 @@ Route::middleware(['auth', 'role:admin'])->group(function(){
 
     Route::controller(OrderController::class)->group(function(){
         Route::get('/admin/pending-ordery','Index')->name('pendingorder');
+    });
+
+    Route::controller(UserController::class)->group(function(){
+        Route::get('/admin/all-user', 'Index')->name('alluser');
     });
 });
 
