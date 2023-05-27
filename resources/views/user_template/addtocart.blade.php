@@ -69,7 +69,7 @@
                         <div class="d-flex justify-content-between">
                             <h6 class="font-weight-medium">Shipping</h6>
                             @if ($total <= 0)
-                                <h6 class="font-weight-medium">$0</h6>
+                                <h6 class="font-weight-medium">0 VNĐ</h6>
                             @else
                                 <h6 class="font-weight-medium">@money(30000)</h6>
                                 @php

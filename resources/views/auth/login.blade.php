@@ -17,7 +17,8 @@
 
             <!-- Email Address -->
             <div>
-                <x-label for="email" :value="__('Email')" />
+                <x-label for="
+                " :value="__('Email')" />
 
                 <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
             </div>
@@ -54,3 +55,4 @@
         </form>
     </x-auth-card>
 </x-guest-layout>
+

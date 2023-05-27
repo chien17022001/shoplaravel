@@ -11,31 +11,36 @@
             </div>
             <div class="card-body">
                 <table class="table">
-                    <tr>
-                        <th>Name</th>
-                        <th>Shipping Information</th>
-                        <th>Product Id</th>
-                        <th>Quantity</th>
-                        <th>Total Will Pay</th>
-                        <th>Action</th>
-                    </tr>
-
-                @foreach ($pending_orders as $order)
-                    <td>{{ $order -> name }}</td>
-                    <td>
-                        <ul>
-                            <li>Phone Number - {{ $order-> phone_number }}</li>
-                            <li>Email - {{ $order-> email }}</li>
-                            <li>Address - {{ $order-> address }}</li>
-                        </ul>
-                    </td>
-                    <td>{{ $order -> product_id }}</td>
-                    <td>{{ $order -> quantity }}</td>
-                    <td>{{ $order -> toltal_price }}</td>
-                    <td><a href="" class="btn btn-success">Approve Now</a></td>
-                    <td></td>
-                @endforeach
-            </table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Shipping Information</th>
+                            <th>Product Id</th>
+                            <th>Quantity</th>
+                            <th>Total Will Pay</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($pending_orders as $order)
+                            <tr>
+                                <td>{{ $order->name }}</td>
+                                <td>
+                                    <ul>
+                                        <li>Phone Number - {{ $order->phone_number }}</li>
+                                        <li>Email - {{ $order->email }}</li>
+                                        <li>Address - {{ $order->address }}</li>
+                                    </ul>
+                                </td>
+                                <td>{{ $order->product_id }}</td>
+                                <td>{{ $order->quantity }}</td>
+                                <td>{{ $order->toltal_price }}</td>
+                                <td><a href="" class="btn btn-success">Approve Now</a></td>
+                                <td></td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
