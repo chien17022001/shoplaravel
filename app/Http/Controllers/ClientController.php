@@ -100,7 +100,8 @@ class ClientController extends Controller
     public function Payment()
     {
         $pending_orders = Order::where('status', 'pending')->latest()->get();
-
+        $userid = Auth::id();
+        $cart_items = Cart::where('user_id', $userid)->latest()->get();
         $vnp_Url = "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
         $vnp_Returnurl = "https://localhost/vnpay_php/vnpay_return.php";
         $vnp_TmnCode = "RATS7ZZD"; //Mã website tại VNPAY
@@ -109,7 +110,7 @@ class ClientController extends Controller
         $vnp_TxnRef = '123'; //Mã đơn hàng. Trong thực tế Merchant cần insert đơn hàng vào DB và gửi mã này sang VNPAY
         $vnp_OrderInfo = 'thanh toán đơn hàng';
         $vnp_OrderType = 'billpayment';
-        $vnp_Amount = 20000 * 100;
+        $vnp_Amount = 540000*100;
         $vnp_Locale = 'vn';
         $vnp_BankCode = 'NCB';
         $vnp_IpAddr = $_SERVER['REMOTE_ADDR'];
@@ -171,7 +172,7 @@ class ClientController extends Controller
             echo json_encode($returnData);
         }
 
-        return view('user_template.checkout_vnp', compact('pending_orders'));
+        return view('user_template.checkout_vnp', compact('pending_orders','cart_items'));
     }
     public function History()
     {
